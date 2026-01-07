@@ -14,8 +14,11 @@ export function Hero() {
             GABRIEL
           </span>
 
-          <span className="text-[12vw] md:text-[11.5vw] font-light italic text-neutral-200 ml-[2vw]">
+          <span className="text-[12vw] md:text-[11.5vw] font-light italic text-neutral-200 ml-[2vw] flex items-baseline">
             Tiziano
+            <span className="animate-blink font-light not-italic text-white">
+              _
+            </span>
           </span>
         </h1>
       </div>

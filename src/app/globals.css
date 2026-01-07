@@ -8,6 +8,13 @@
   --color-muted: #737373;      
   --color-accent: #ffffff;     
   --image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+
+  --animate-blink: blink 1s step-end infinite;
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
 }
 
 :root {
