@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-6 md:px-12 mix-blend-difference text-white">
+    <header className="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-6 md:px-12 text-white backdrop-blur-md bg-black/50 border-b border-white/5">
       <div className="text-lg tracking-tight font-medium">
         <span className="font-grotesk font-bold">GABRIEL</span>
         <span className="italic font-light opacity-80 ml-1">tiziano</span>

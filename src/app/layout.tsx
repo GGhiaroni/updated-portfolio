@@ -1,3 +1,4 @@
+import { MouseSpotlight } from "@/components/ui/MouseSpotlight";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
@@ -34,6 +35,7 @@ export default function RootLayout({
           spaceGrotesk.variable
         )}
       >
+        <MouseSpotlight />
         {children}
       </body>
     </html>
