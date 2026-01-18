@@ -1,5 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
+import { ProjectCarousel } from "@/components/ui/ProjectCarousel";
+import { FiExternalLink } from "react-icons/fi";
+import { SiGithub, SiVercel } from "react-icons/si";
 
 const projects = [
   {
@@ -7,7 +8,7 @@ const projects = [
     title: "solidify",
     category: "[web app]",
     description:
-      "Professional Real Estate Inspection platform designed to streamline property audits for tenant turnover and sales transactions. Facilitates detailed reporting and digital evidence management.",
+      "A complete ecosystem where you can closely monitor your performance. Improve yourself with the help of Google AI and know exactly what to study from personalized study plans by Gemini. Take notes in notebooks you create, inspired by Notion. Use the Pomodoro Timer to time and record your study sessions, which you can later access in the Study Tracker area, with an easy and intuitive overview of your performance over the last few days, weeks, and months. Also take advantage of the LoFi player to help you concentrate. Happy studying!",
     tags: [
       "Next.js",
       "TypeScript",
@@ -21,38 +22,35 @@ const projects = [
       "Gemini AI",
       "Blocknote",
     ],
-    image: "/projects/placeholder.png",
-    link: "#",
-  },
-  {
-    id: "01",
-    title: "Visto.io",
-    category: "[WEB APP]",
-    description:
-      "Professional Real Estate Inspection platform designed to streamline property audits for tenant turnover and sales transactions. Facilitates detailed reporting and digital evidence management.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
-    image: "/projects/placeholder.png",
-    link: "#",
+    images: [
+      "/projects/solidify/login.png",
+      "/projects/solidify/dashboard.png",
+      "/projects/solidify/cadernos.png",
+      "/projects/solidify/jornadas-ativas.png",
+      "/projects/solidify/study-tracker.png",
+      "/projects/solidify/pomodoro.png",
+      "/projects/solidify/lofi-radio.png",
+    ],
+    gitHubLink: "https://github.com/GGhiaroni/solidify",
+    vercelLink: "https://solidify-vxpu.vercel.app",
   },
   {
     id: "02",
-    title: "PathFinder",
-    category: "[AI PLATFORM]",
+    title: "Visto.io",
+    category: "[WEB APP]",
     description:
-      "Highly customizable travel planning application powered by Generative AI. Features advanced personalization using Google Gemini that creates bespoke itineraries based on user preferences.",
-    tags: ["Next.js", "Google Gemini", "Unsplash API", "Server Actions"],
-    image: "/projects/placeholder.png",
-    link: "#",
+      "Professional Real Estate Inspection platform designed to streamline property audits for tenant turnover and sales transactions.",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    images: ["/projects/placeholder.png", "/projects/placeholder.png"],
   },
   {
     id: "03",
-    title: "PetMatch",
-    category: "[WEB APP]",
+    title: "PathFinder",
+    category: "[AI PLATFORM]",
     description:
-      "Platform connecting users for pet adoption, featuring dynamic filtering and an intuitive UI tailored for user engagement.",
-    tags: ["React", "TypeScript", "Styled Components"],
-    image: "/projects/placeholder.png",
-    link: "#",
+      "Highly customizable travel planning application powered by Generative AI with Google Gemini.",
+    tags: ["Next.js", "Google Gemini", "Unsplash API", "Server Actions"],
+    images: ["/projects/placeholder.png"],
   },
 ];
 
@@ -77,10 +75,13 @@ export function Projects() {
 
         <div className="flex flex-col gap-32">
           {projects.map((project) => (
-            <div key={project.id} className="group flex flex-col gap-10">
+            <div
+              key={`${project.id}-${project.title}`}
+              className="group flex flex-col gap-10"
+            >
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-4">
-                  <h3 className="text-4xl md:text-5xl font-grotesk font-medium text-white group-hover:text-neutral-300 transition-colors cursor-pointer">
+                  <h3 className="text-4xl md:text-5xl font-grotesk font-medium text-white hover:text-neutral-300 transition-colors cursor-pointer">
                     <span className="text-neutral-600 font-mono text-xl md:text-2xl mr-4 font-light">
                       {project.id}.
                     </span>
@@ -118,28 +119,49 @@ export function Projects() {
                 </div>
               </div>
 
-              <div className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-sm bg-neutral-900 border border-white/5">
-                <Link
-                  href={project.link}
-                  className="absolute inset-0 z-20"
-                  aria-label={`View project ${project.title}`}
-                />
-
-                <div className="w-full h-full transition-transform duration-700 ease-out group-hover:scale-[1.01]">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#111] group-hover:bg-[#131313] transition-colors">
-                    <span className="text-neutral-700 font-grotesk text-3xl mb-2 opacity-50">
-                      {project.title} Preview
-                    </span>
-                  </div>
-
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-top"
-                    quality={90}
+              <div className="w-full max-w-5xl mx-auto">
+                <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-xl bg-neutral-900/50 border border-white/5 transition-all duration-700 group-hover:border-white/10 group-hover:scale-[1.01]">
+                  <ProjectCarousel
+                    images={project.images}
+                    title={project.title}
                   />
                 </div>
+              </div>
+
+              <div className="flex items-center gap-8 mt-4">
+                {project.gitHubLink && (
+                  <a
+                    href={project.gitHubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-medium text-neutral-500 hover:text-white transition-all duration-300 group/link"
+                  >
+                    <SiGithub
+                      size={20}
+                      className="group-hover/link:scale-110 transition-transform"
+                    />
+                    <span className="tracking-tight">View Source</span>
+                  </a>
+                )}
+
+                {project.vercelLink && (
+                  <a
+                    href={project.vercelLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm font-medium text-neutral-500 hover:text-white transition-all duration-300 group/link"
+                  >
+                    <SiVercel
+                      size={18}
+                      className="group-hover/link:scale-110 transition-transform"
+                    />
+                    <span className="tracking-tight">Live Demo</span>
+                    <FiExternalLink
+                      size={14}
+                      className="opacity-0 -ml-1 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all"
+                    />
+                  </a>
+                )}
               </div>
             </div>
           ))}

@@ -63,14 +63,14 @@ export function ProjectCarousel({ images, title }: Props) {
         <div className="flex h-full">
           {images.map((src, index) => (
             <div
-              className="relative flex-[0_0_100%] min-w-0 h-full"
+              className="relative flex-[0_0_100%] min-w-0 h-full p-4 md:p-10"
               key={index}
             >
               <Image
                 src={src}
                 alt={`${title} - slide ${index + 1}`}
                 fill
-                className="object-cover object-top"
+                className="object-cover drop-shadow-2xl"
                 quality={90}
                 priority={index === 0}
               />
