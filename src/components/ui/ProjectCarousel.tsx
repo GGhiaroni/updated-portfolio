@@ -84,7 +84,7 @@ export function ProjectCarousel({ images, title }: Props) {
           <button
             type="button"
             onClick={scrollPrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/10 text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-black"
+            className="hover:cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/10 text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-black"
           >
             <ChevronLeft size={20} />
           </button>
@@ -92,7 +92,7 @@ export function ProjectCarousel({ images, title }: Props) {
           <button
             type="button"
             onClick={scrollNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/10 text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-black"
+            className="hover:cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/10 text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-black"
           >
             <ChevronRight size={20} />
           </button>
