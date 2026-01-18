@@ -4,6 +4,28 @@ import Link from "next/link";
 const projects = [
   {
     id: "01",
+    title: "solidify",
+    category: "[web app]",
+    description:
+      "Professional Real Estate Inspection platform designed to streamline property audits for tenant turnover and sales transactions. Facilitates detailed reporting and digital evidence management.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Clerk",
+      "PostgreSQL",
+      "Prisma",
+      "Supabase",
+      "Zod",
+      "ShadCN",
+      "Tailwind",
+      "Gemini AI",
+      "Blocknote",
+    ],
+    image: "/projects/placeholder.png",
+    link: "#",
+  },
+  {
+    id: "01",
     title: "Visto.io",
     category: "[WEB APP]",
     description:
@@ -42,7 +64,7 @@ export function Projects() {
           <div className="flex justify-between items-end mb-4 border-b border-white/10 pb-4">
             <span className="text-xs font-bold text-neutral-500 tracking-widest uppercase flex items-center gap-2">
               <span className="w-2 h-2 bg-neutral-500 rounded-full"></span>
-              Selected Work
+              my latest works
             </span>
             <span className="text-xs font-mono text-neutral-500">
               (2023—2026)
